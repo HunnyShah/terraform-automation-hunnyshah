@@ -22,3 +22,20 @@ module "common_services" {
   storage_account_name = "n01514804storage"
 }
 
+module "linux_vms" {
+  source                     = "./modules/vmlinux-n01514804"
+  resource_group_name        = "n01514804-RG"
+  location                   = "Canada Central"
+  availability_set_name      = "n01514804-linux-avset"
+  subnet_id                  = module.network.subnet_id
+  admin_username             = "azureuser"
+  admin_password             = "SecurePassword123!"
+  boot_diagnostics_storage_uri = module.common_services.storage_account_uri
+
+  vm_names = {
+    "n01514804-vm1" = "vm1"
+    "n01514804-vm2" = "vm2"
+    "n01514804-vm3" = "vm3"
+  }
+}
+

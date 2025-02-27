@@ -28,3 +28,19 @@ output "storage_account_name" {
   value       = module.common_services.storage_account_name
 }
 
+output "linux_vm_hostnames" {
+  value = module.linux_vms.vm_hostnames
+}
+
+output "linux_vm_private_ips" {
+  value = module.linux_vms.vm_private_ips
+}
+
+output "linux_vm_public_ips" {
+  value = module.linux_vms.vm_public_ips
+}
+
+output "linux_vm_dns_names" {
+  value = module.linux_vms.vm_dns_names
+}
+
