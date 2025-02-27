@@ -14,13 +14,16 @@ variable "availability_set_name" {
   type        = string
 }
 
-variable "vm_names" {
-  description = "List of VM names"
-  type        = map(string)
-  default     = {
-    "n01514804-vm1" = "vm1"
-    "n01514804-vm2" = "vm2"
-  }
+variable "vm_name" {
+  description = "Windows VM name"
+  type        = string
+  default     = "n01514804-winvm"
+}
+
+variable "vm_count" {
+  description = "Number of Windows VMs"
+  type        = number
+  default     = 1
 }
 
 variable "subnet_id" {

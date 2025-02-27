@@ -6,7 +6,7 @@ resource "azurerm_availability_set" "linux_avset" {
 }
 
 resource "azurerm_public_ip" "linux_pip" {
-  for_each            = var.vm_names
+  for_each            = toset(["n01514804-vm1"])
   name                = "${each.key}-pip"
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -25,7 +25,7 @@ resource "azurerm_network_interface" "linux_nic" {
     name                          = "ipconfig"
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.linux_pip[each.key].id
+    public_ip_address_id          = try(azurerm_public_ip.linux_pip[each.key].id, null)
   }
 }
 

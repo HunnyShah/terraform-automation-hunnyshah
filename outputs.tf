@@ -44,3 +44,19 @@ output "linux_vm_dns_names" {
   value = module.linux_vms.vm_dns_names
 }
 
+output "windows_vm_hostname" {
+  value = module.windows_vm.vm_hostname
+}
+
+output "windows_vm_private_ip" {
+  value = module.windows_vm.vm_private_ip
+}
+
+output "windows_vm_public_ip" {
+  value = module.windows_vm.vm_public_ip
+}
+
+output "windows_vm_dns_name" {
+  value = module.windows_vm.vm_dns_name
+}
+
