@@ -1,3 +1,8 @@
+output "vm_id" {
+  description = "ID of the Windows VM"
+  value       = azurerm_virtual_machine.windows_vm[0].id
+}
+
 output "vm_hostname" {
   description = "Windows VM hostname"
   value       = azurerm_virtual_machine.windows_vm[0].name

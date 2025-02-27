@@ -1,3 +1,8 @@
+output "vm_ids" {
+  description = "IDs of the Linux VMs"
+  value       = { for k, v in azurerm_virtual_machine.linux_vm : k => v.id }
+}
+
 output "vm_hostnames" {
   description = "List of Linux VM hostnames"
   value       = { for k, v in azurerm_virtual_machine.linux_vm : k => v.name }

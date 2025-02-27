@@ -51,3 +51,14 @@ module "windows_vm" {
   boot_diagnostics_storage_uri = module.common_services.storage_account_uri
 }
 
+module "datadisks" {
+  source               = "./modules/datadisk-n01514804"
+  resource_group_name  = "n01514804-RG"
+  location             = "Canada Central"
+  vm_names = {
+    "n01514804-vm1"    = module.linux_vms.vm_ids["n01514804-vm1"]
+    "n01514804-vm2"    = module.linux_vms.vm_ids["n01514804-vm2"]
+    "n01514804-winvm"  = module.windows_vm.vm_id
+  }
+}
+

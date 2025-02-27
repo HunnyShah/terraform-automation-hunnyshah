@@ -60,3 +60,7 @@ output "windows_vm_dns_name" {
   value = module.windows_vm.vm_dns_name
 }
 
+output "datadisk_names" {
+  value = module.datadisks.disk_names
+}
+
